@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  dapr-testing-api:
+    build:
+      context: .
+      args:
+        VERSION: "1.0.0"
+    container_name: "dapr-testing-api"
+    restart: "always"
+    ports:
+      - 8080:8080
+      - 8081:8081
+    environment:
+      Application__BaseUrl: "http://localhost:8081/"
+      ASPNETCORE_ENVIRONMENT: "Development"
