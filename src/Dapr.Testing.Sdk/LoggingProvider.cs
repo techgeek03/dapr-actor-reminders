@@ -1,9 +1,8 @@
 using Serilog;
 using Serilog.Events;
 using Serilog.Formatting.Compact;
-using ILogger = Serilog.ILogger;
 
-namespace Dapr.Testing.WebApi;
+namespace Dapr.Testing.Sdk;
 
 public static class LoggingProvider
 {

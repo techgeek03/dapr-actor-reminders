@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Dapr.Testing.Sdk;
 using Serilog;
 
-namespace Dapr.Testing.WebApi;
+namespace Dapr.Testing.Actors.Runtime;
 
 public static class Program
 {

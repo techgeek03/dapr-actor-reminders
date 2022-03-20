@@ -24,6 +24,9 @@ RUN dotnet build --no-restore -c Release Dapr.Testing.sln
 FROM build as publish-web-api
 RUN dotnet publish --no-restore -c Release -o out src/Dapr.Testing.WebApi/Dapr.Testing.WebApi.csproj
 
+FROM build as publish-actors-runtime
+RUN dotnet publish --no-restore -c Release -o out src/Dapr.Testing.Actors.Runtime/Dapr.Testing.Actors.Runtime.csproj
+
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 RUN apt-get update \
     && apt-get install -y --allow-unauthenticated \
@@ -39,3 +42,7 @@ WORKDIR /app
 FROM runtime AS web-api
 COPY --from=publish-web-api /src/out ./
 ENTRYPOINT ["dotnet", "Dapr.Testing.WebApi.dll"]
+
+FROM runtime AS actors-runtime
+COPY --from=publish-actors-runtime /src/out ./
+ENTRYPOINT ["dotnet", "Dapr.Testing.Actors.Runtime.dll"]

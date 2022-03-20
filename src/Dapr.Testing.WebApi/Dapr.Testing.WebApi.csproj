@@ -12,4 +12,9 @@
       <PackageReference Include="Serilog.Exceptions" Version="8.1.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Dapr.Testing.Actors.Abstractions\Dapr.Testing.Actors.Abstractions.csproj" />
+      <ProjectReference Include="..\Dapr.Testing.Sdk\Dapr.Testing.Sdk.csproj" />
+    </ItemGroup>
+
 </Project>

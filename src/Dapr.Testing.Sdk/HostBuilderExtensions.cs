@@ -1,9 +1,11 @@
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 using Serilog.Exceptions;
 using Serilog.Formatting.Compact;
 
-namespace Dapr.Testing.WebApi;
+namespace Dapr.Testing.Sdk;
 
 public static class HostBuilderExtensions
 {

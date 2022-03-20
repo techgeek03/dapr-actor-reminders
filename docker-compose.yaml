@@ -13,3 +13,18 @@ services:
     environment:
       Application__BaseUrl: "http://localhost:8081/"
       ASPNETCORE_ENVIRONMENT: "Development"
+
+  dapr-actors-runtime:
+    build:
+      context: .
+      args:
+        VERSION: "1.0.0"
+    container_name: "dapr-actors-runtime"
+    restart: "always"
+    ports:
+      - 8080:8080
+      - 8081:8081
+    environment:
+      Application__BaseUrl: "http://localhost:8081/"
+      ASPNETCORE_ENVIRONMENT: "Development"
+      Kestrel__Endpoints__Http__Url: "http://*:8081"

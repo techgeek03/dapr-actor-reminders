@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace Dapr.Testing.WebApi;
+namespace Dapr.Testing.Sdk;
 
 internal static class ActivityExtensions
 {

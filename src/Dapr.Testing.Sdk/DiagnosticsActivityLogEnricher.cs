@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Serilog.Core;
 using Serilog.Events;
 
-namespace Dapr.Testing.WebApi;
+namespace Dapr.Testing.Sdk;
 
 public class DiagnosticsActivityLogEnricher : ILogEventEnricher
 {
