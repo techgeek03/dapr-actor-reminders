@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: testing-actor-runtime
+  name: testing-actor-runtime
+spec:
+  ports:
+  - name: grpc
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: testing-actor-runtime
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: testing-web-api
+  name: testing-web-api
+spec:
+  ports:
+  - name: grpc
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: testing-web-api
+  type: ClusterIP

@@ -1,0 +1,22 @@
+global:
+  registry: docker.io/daprio
+  daprControlPlaneArch: amd64
+  daprControlPlaneOs: linux
+  ha:
+    enabled: true
+    replicaCount: 3
+  imagePullPolicy: Always
+  logAsJson: true
+  mtls:
+    allowedClockSkew: 15m
+    enabled: true
+    workloadCertTTL: 24h
+  prometheus:
+    enabled: true
+    port: 9090
+dapr_dashboard:
+  image:
+    registry: docker.io/daprio
+dapr_placement:
+  replicaCount: 3
+  logLevel: debug
