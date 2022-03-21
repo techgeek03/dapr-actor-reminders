@@ -1,3 +1,5 @@
+using Dapr.Testing.Sdk;
+
 namespace Dapr.Testing.WebApi;
 
 public class Startup
@@ -11,6 +13,8 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddOptions();
+        services.Configure<ApplicationOptions>(Configuration.GetSection("Application"));
         services.AddControllers();
     }
 
