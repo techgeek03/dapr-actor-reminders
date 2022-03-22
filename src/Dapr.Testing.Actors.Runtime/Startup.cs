@@ -33,6 +33,7 @@ public class Startup
 
         app.UseEndpoints(endpoints =>
         {
+            endpoints.MapHealthzChecks();
             endpoints.MapActorsHandlers();
         });
     }

@@ -6,23 +6,19 @@ using Microsoft.Extensions.Options;
 namespace Dapr.Testing.Actors.Runtime;
 
 [Actor(TypeName = "RemindMeEveryMinute01")]
-public class RemindMeEveryMinute01Actor : Actor, IRemindMeEveryMinute01Actor, IRemindable
+public class RemindMeEveryMinute01Actor :
+    BaseActor,
+    IRemindMeEveryMinute01Actor,
+    IRemindable
 {
     private const string GetStateName = "RemindMe-Every-Minute-State";
-    private readonly ILogger<RemindMeEveryMinute01Actor> _logger;
-    private readonly ApplicationOptions _options;
     private readonly RemindMeEveryMinuteState _state;
-
-    private IDisposable? _loggerScope;
 
     public RemindMeEveryMinute01Actor(
         ActorHost host,
-        ILogger<RemindMeEveryMinute01Actor> logger,
         IOptions<ApplicationOptions> options)
-        : base(host)
+        : base(host, options)
     {
-        _logger = logger;
-        _options = options.Value;
         _state = new RemindMeEveryMinuteState();
     }
 
@@ -37,13 +33,13 @@ public class RemindMeEveryMinute01Actor : Actor, IRemindMeEveryMinute01Actor, IR
             { "ReminderName", reminderName },
             { "ReminderDueTime", dueTime },
             { "ReminderPeriod", period },
-            { "PodName", _options.PodName },
-            { "ContainerId", _options.ContainerId }
+            { "PodName", Options.PodName },
+            { "ContainerId", Options.ContainerId }
         };
 
-        using (_logger.BeginScope(scopeParameters))
+        using (Logger.BeginScope(scopeParameters))
         {
-            _logger.LogInformation("Reminder received");
+            Logger.LogInformation("Reminder received");
             if (_state.Count == 0)
             {
                 _state.StartedAt = DateTime.UtcNow;
@@ -51,13 +47,13 @@ public class RemindMeEveryMinute01Actor : Actor, IRemindMeEveryMinute01Actor, IR
 
             if (_state.Count > 9)
             {
-                _logger.LogInformation("Reminder count reached 10, unregistering reminder");
+                Logger.LogInformation("Reminder count reached 10, unregistering reminder");
                 await UnregisterReminderAsync($"RemindMe-Every-Minute-{Id}-Reminder");
             }
             else
             {
                 _state.Count++;
-                _logger.LogInformation("Reminder count: {Count}", _state.Count);
+                Logger.LogInformation("Reminder count: {Count}", _state.Count);
                 await StateManager.AddOrUpdateStateAsync(GetStateName, _state, (key, value) => _state);
 
                 var operationState = new RemindMeEveryMinuteOperationState
@@ -69,13 +65,13 @@ public class RemindMeEveryMinute01Actor : Actor, IRemindMeEveryMinute01Actor, IR
 
                 if (hasOperationBeenAdded)
                 {
-                    _logger.LogCritical("Detected duplicate operation. The operation count is {Count}", _state.Count);
+                    Logger.LogCritical("Detected duplicate operation. The operation count is {Count}", _state.Count);
                     operationState.WasOperationAlreadyExecuted = true;
                     await StateManager.SetStateAsync(GetOperationStateName(_state.Count), operationState);
                 }
                 else
                 {
-                    _logger.LogInformation("Operation {Count} state added", _state.Count);
+                    Logger.LogInformation("Operation {Count} state added", _state.Count);
                 }
             }
 
@@ -89,7 +85,7 @@ public class RemindMeEveryMinute01Actor : Actor, IRemindMeEveryMinute01Actor, IR
 
         if (!result.HasValue)
         {
-            _logger.LogInformation("State not found. Reminder was not executed yet maybe");
+            Logger.LogInformation("State not found. Reminder was not executed yet maybe");
         }
 
         return result.Value;
@@ -103,66 +99,7 @@ public class RemindMeEveryMinute01Actor : Actor, IRemindMeEveryMinute01Actor, IR
             TimeSpan.FromSeconds(30),
             TimeSpan.FromMinutes(1));
 
-        _logger.LogInformation("Actor reminder registered");
-    }
-
-    protected override Task OnActivateAsync()
-    {
-        var scopeParameters = new Dictionary<string, object>
-        {
-            { "ActorId", Id.ToString() },
-            { "PodName", _options.PodName },
-            { "ContainerId", _options.ContainerId }
-        };
-
-        using (_logger.BeginScope(scopeParameters))
-        {
-            _logger.LogInformation("Actor activated");
-        }
-
-        return base.OnActivateAsync();
-    }
-
-    protected override Task OnDeactivateAsync()
-    {
-        var scopeParameters = new Dictionary<string, object>
-        {
-            { "ActorId", Id.ToString() },
-            { "PodName", _options.PodName },
-            { "ContainerId", _options.ContainerId }
-        };
-
-        using (_logger.BeginScope(scopeParameters))
-        {
-            _logger.LogInformation("Actor deactivated");
-        }
-
-        return base.OnDeactivateAsync();
-    }
-
-    protected override Task OnPreActorMethodAsync(ActorMethodContext actorMethodContext)
-    {
-        var scopeParameters = new Dictionary<string, object>
-        {
-            { "ActorId", Id.ToString() },
-            { "MethodName", actorMethodContext.MethodName },
-            { "CallType", actorMethodContext.CallType.ToString() },
-            { "PodName", _options.PodName },
-            { "ContainerId", _options.ContainerId }
-        };
-
-        _loggerScope = Logger.BeginScope(scopeParameters);
-
-        return base.OnPreActorMethodAsync(actorMethodContext);
-    }
-
-    protected override Task OnPostActorMethodAsync(ActorMethodContext actorMethodContext)
-    {
-        var result = base.OnPostActorMethodAsync(actorMethodContext);
-
-        _loggerScope?.Dispose();
-
-        return result;
+        Logger.LogInformation("Actor reminder registered");
     }
 
     private string GetOperationStateName(int count)

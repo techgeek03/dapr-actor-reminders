@@ -9,6 +9,11 @@ public interface IRemindMeEveryMinute01Actor : IActor
     Task RegisterReminder();
 }
 
+public interface IRemindMeEveryMinute02Actor : IActor
+{
+    Task RegisterReminder();
+}
+
 public class RemindMeEveryMinuteState
 {
     public int Count { get; set; }
