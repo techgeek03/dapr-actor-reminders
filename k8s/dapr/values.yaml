@@ -1,6 +1,6 @@
 global:
   registry: docker.io/daprio
-  daprControlPlaneArch: arm64
+  daprControlPlaneArch: amd64
   daprControlPlaneOs: linux
   ha:
     enabled: true

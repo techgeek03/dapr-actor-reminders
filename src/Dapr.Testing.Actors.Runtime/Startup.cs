@@ -14,11 +14,13 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddOptions();
+        services.AddHealthChecks();
         services.Configure<ApplicationOptions>(Configuration.GetSection("Application"));
 
         services.AddActors(options =>
         {
             options.Actors.RegisterActor<RemindMeEveryMinute01Actor>();
+            options.Actors.RegisterActor<RemindMeEveryMinute02Actor>();
 
             options.ActorIdleTimeout = TimeSpan.FromMinutes(60);
             options.ActorScanInterval = TimeSpan.FromSeconds(30);

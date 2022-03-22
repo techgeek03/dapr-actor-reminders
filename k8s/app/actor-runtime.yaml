@@ -1,0 +1,128 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: testing-actor-runtime
+    version: v1
+  name: testing-actor-runtime
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: testing-actor-runtime
+      version: v1
+  strategy:
+    rollingUpdate:
+      maxSurge: 30%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        dapr.io/app-id: testing-actor-runtime
+        dapr.io/app-port: "8081"
+        dapr.io/config: dapr-testing-app-config
+        dapr.io/enable-metrics: "false"
+        dapr.io/enabled: "true"
+        dapr.io/log-as-json: "true"
+        dapr.io/metrics-port: "9090"
+        dapr.io/sidecar-cpu-limit: "1"
+        dapr.io/sidecar-cpu-request: 100m
+        dapr.io/sidecar-memory-limit: 256Mi
+        dapr.io/sidecar-memory-request: 128Mi
+      labels:
+        app: testing-actor-runtime
+        version: v1
+    spec:
+      containers:
+      - env:
+        - name: Application__ContainerId
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.uid
+        - name: Application__PodName
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: Kestrel__Endpoints__Grpc__Protocols
+          value: Http1
+        - name: Kestrel__Endpoints__Grpc__Url
+          value: http://*:8080
+        - name: Kestrel__Endpoints__Http__Url
+          value: http://*:8081
+        - name: Serilog__MinimumLevel__Override__Grpc
+          value: Debug
+        - name: Serilog__MinimumLevel__Override__System.Net.Http.HttpClient
+          value: Warning
+        image: dweurelaylocaldevacr.azurecr.io/dapr/testing-actors-runtime
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz/live
+            port: 8081
+            scheme: HTTP
+          initialDelaySeconds: 3
+          periodSeconds: 3
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: testing-actor-runtime
+        ports:
+        - containerPort: 8080
+          name: grpc
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz/ready
+            port: 8081
+            scheme: HTTP
+          initialDelaySeconds: 3
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 2
+        resources:
+          limits:
+            cpu: 200m
+            memory: 384Mi
+          requests:
+            cpu: 50m
+            memory: 192Mi
+        securityContext: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /tmp
+          name: tmp-volume
+      dnsConfig:
+        options:
+        - name: use-vc
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      securityContext:
+        runAsGroup: 3000
+        runAsUser: 1000
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir: {}
+        name: tmp-volume
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: testing-actor-runtime
+  name: testing-actor-runtime
+spec:
+  ports:
+  - name: grpc
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: testing-actor-runtime
+  type: ClusterIP

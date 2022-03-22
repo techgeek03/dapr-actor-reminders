@@ -1,3 +1,4 @@
+using Dapr.Actors.Client;
 using Dapr.Testing.Sdk;
 
 namespace Dapr.Testing.WebApi;
@@ -14,7 +15,11 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddOptions();
+        services.AddHealthChecks();
         services.Configure<ApplicationOptions>(Configuration.GetSection("Application"));
+
+        services.AddSingleton(ActorProxy.DefaultProxyFactory);
+
         services.AddControllers();
     }
 

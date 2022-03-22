@@ -21,7 +21,7 @@ public class RemindMeEveryMinute02Actor :
     public async Task RegisterReminder()
     {
         await RegisterReminderAsync(
-            $"RemindMe-Every-Minute02-{Id}-Reminder",
+            GetReminderName(),
             null,
             TimeSpan.FromSeconds(30),
             TimeSpan.FromMinutes(1));
@@ -51,4 +51,7 @@ public class RemindMeEveryMinute02Actor :
             await SaveStateAsync();
         }
     }
+
+    private string GetReminderName()
+        => $"RemindMe-Every-Minute-02-{Id}-Reminder";
 }

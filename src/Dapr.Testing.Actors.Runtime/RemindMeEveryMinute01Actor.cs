@@ -48,7 +48,7 @@ public class RemindMeEveryMinute01Actor :
             if (_state.Count > 9)
             {
                 Logger.LogInformation("Reminder count reached 10, unregistering reminder");
-                await UnregisterReminderAsync($"RemindMe-Every-Minute-{Id}-Reminder");
+                await UnregisterReminderAsync(GetReminderName());
             }
             else
             {
@@ -94,13 +94,16 @@ public class RemindMeEveryMinute01Actor :
     public async Task RegisterReminder()
     {
         await RegisterReminderAsync(
-            $"RemindMe-Every-Minute-{Id}-Reminder",
+            GetReminderName(),
             null,
             TimeSpan.FromSeconds(30),
             TimeSpan.FromMinutes(1));
 
         Logger.LogInformation("Actor reminder registered");
     }
+
+    private string GetReminderName()
+        => $"RemindMe-Every-Minute-01-{Id}-Reminder";
 
     private string GetOperationStateName(int count)
         => $"RemindMe-Every-Minute-Operation-{count}-State";

@@ -19,3 +19,6 @@ helm install dapr dapr/dapr --namespace dapr-system --values k8s/dapr/values.yam
 kubectl create ns apps
 
 ```
+
+
+az aks update -n d-weu-relay-local-dev-aks -g d-weu-local-development-rg --attach-acr dweurelaylocaldevacr

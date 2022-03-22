@@ -5,6 +5,7 @@ services:
       context: .
       args:
         VERSION: "1.0.0"
+      target: web-api
     container_name: "dapr-testing-api"
     restart: "always"
     ports:
@@ -19,6 +20,7 @@ services:
       context: .
       args:
         VERSION: "1.0.0"
+      target: actors-runtime
     container_name: "dapr-actors-runtime"
     restart: "always"
     ports:

@@ -49,15 +49,15 @@ spec:
               apiVersion: v1
               fieldPath: metadata.name
         - name: Kestrel__Endpoints__Grpc__Protocols
-          value: Http2
+          value: Http1
         - name: Kestrel__Endpoints__Grpc__Url
           value: http://*:8080
         - name: Serilog__MinimumLevel__Override__Grpc
           value: Debug
         - name: Serilog__MinimumLevel__Override__System.Net.Http.HttpClient
           value: Warning
-        image: dapr-actor-reminders_dapr-testing-api
-        imagePullPolicy: IfNotPresent
+        image: dweurelaylocaldevacr.azurecr.io/dapr/testing-web-api
+        imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 3
           httpGet:
@@ -101,7 +101,6 @@ spec:
         - name: use-vc
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      schedulerName: default-scheduler
       securityContext:
         runAsGroup: 3000
         runAsUser: 1000
@@ -109,3 +108,20 @@ spec:
       volumes:
       - emptyDir: {}
         name: tmp-volume
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: testing-web-api
+  name: testing-web-api
+spec:
+  ports:
+  - name: grpc
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: testing-web-api
+  type: ClusterIP
+
