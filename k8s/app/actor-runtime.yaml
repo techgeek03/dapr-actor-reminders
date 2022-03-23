@@ -58,6 +58,10 @@ spec:
           value: Debug
         - name: Serilog__MinimumLevel__Override__System.Net.Http.HttpClient
           value: Warning
+        - name: Dapr__Actors__IdleTimeoutSeconds
+          value: "300"
+        - name: Dapr__Actors__ScanIntervalSeconds
+          value: "30"
         image: dweurelaylocaldevacr.azurecr.io/dapr/testing-actors-runtime
         imagePullPolicy: Always
         livenessProbe:

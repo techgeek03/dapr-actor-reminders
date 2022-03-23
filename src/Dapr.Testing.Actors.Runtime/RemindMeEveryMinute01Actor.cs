@@ -59,19 +59,20 @@ public class RemindMeEveryMinute01Actor :
                 var operationState = new RemindMeEveryMinuteOperationState
                 {
                     OccuredAt = DateTime.UtcNow,
-                    WasOperationAlreadyExecuted = false
+                    WasOperationAlreadyExecuted = false,
+                    OccuredAtPodName = Options.PodName
                 };
-                var hasOperationBeenAdded = await StateManager.TryAddStateAsync(GetOperationStateName(_state.Count), operationState);
+                var wasStateAdded = await StateManager.TryAddStateAsync(GetOperationStateName(_state.Count), operationState);
 
-                if (hasOperationBeenAdded)
+                if (wasStateAdded)
+                {
+                    Logger.LogInformation("Operation {Count} state added", _state.Count);
+                }
+                else
                 {
                     Logger.LogCritical("Detected duplicate operation. The operation count is {Count}", _state.Count);
                     operationState.WasOperationAlreadyExecuted = true;
                     await StateManager.SetStateAsync(GetOperationStateName(_state.Count), operationState);
-                }
-                else
-                {
-                    Logger.LogInformation("Operation {Count} state added", _state.Count);
                 }
             }
 
@@ -100,6 +101,19 @@ public class RemindMeEveryMinute01Actor :
             TimeSpan.FromMinutes(1));
 
         Logger.LogInformation("Actor reminder registered");
+    }
+
+    protected override async Task OnActivateAsync()
+    {
+        await base.OnActivateAsync();
+
+        var result = await StateManager.TryGetStateAsync<RemindMeEveryMinuteState>(GetStateName);
+
+        if (result.HasValue)
+        {
+            _state.Count = result.Value.Count;
+            _state.StartedAt = result.Value.StartedAt;
+        }
     }
 
     private string GetReminderName()

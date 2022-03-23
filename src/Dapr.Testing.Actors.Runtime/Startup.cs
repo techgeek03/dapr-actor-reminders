@@ -22,8 +22,8 @@ public class Startup
             options.Actors.RegisterActor<RemindMeEveryMinute01Actor>();
             options.Actors.RegisterActor<RemindMeEveryMinute02Actor>();
 
-            options.ActorIdleTimeout = TimeSpan.FromMinutes(60);
-            options.ActorScanInterval = TimeSpan.FromSeconds(30);
+            options.ActorIdleTimeout = TimeSpan.FromSeconds(Configuration.GetValue<int>("Dapr:Actors:IdleTimeoutSeconds"));
+            options.ActorScanInterval = TimeSpan.FromSeconds(Configuration.GetValue<int>("Dapr:Actors:ScanIntervalSeconds"));
             options.DrainRebalancedActors = true;
             options.DrainOngoingCallTimeout = TimeSpan.FromSeconds(30);
         });

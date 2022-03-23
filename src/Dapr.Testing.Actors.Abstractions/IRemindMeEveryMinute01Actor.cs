@@ -26,4 +26,6 @@ public class RemindMeEveryMinuteOperationState
     public DateTime OccuredAt { get; set; }
 
     public bool WasOperationAlreadyExecuted { get; set; }
+
+    public string OccuredAtPodName { get; set; } = default!;
 }
