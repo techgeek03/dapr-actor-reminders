@@ -1,6 +1,6 @@
-# Dapr Actors Reminders
+# Dapr Actors on dotNet
 
-Project for testing dapr actor reminders.
+Project for testing dapr actor with dotNet SDK.
 
 ## Pre-requirements
 
@@ -22,15 +22,15 @@ Project for testing dapr actor reminders.
         ┌─────────▼────────┐
         │                  │
         │   Test Web Api   │
-        │                  │
         │   Invokes dapr   │
+        │      actor       │
         └─────────┬────────┘
                   │
                   │
     ┌─────────────▼────────────────┐
     │   Test Actor Runtime         │
     │                              │
-    │ Hosts actors:                │
+    │ Hosts actor types:           │
     │ - RemindMeEveryMinute01      │
     │ - RemindMeEveryMinute02      │
     │                              │
@@ -72,9 +72,52 @@ helm install dapr dapr/dapr --namespace dapr-system --values k8s/dapr/values.yam
 kubectl create ns apps
 ```
 
-### Build app for deployment
+You will need to create the actor state store dapr component as well. The configuration bellow is not recommended since the secret is added in plain text, but since this is for testing purposes will allow it :) Refer to official documentation for production configuration. In CosmosDB make sure you have created the database `dapr-store` and added collection `actorStateStore`.
 
-Build the app consist of preparing an container image build with Docker that is pushed to an registry
+```yaml
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: dapr-actor-state-store
+spec:
+  type: state.azure.cosmosdb
+  version: v1
+  metadata:
+    - name: url
+      value: "<Replace with the url of CosmosDB>"
+    - name: masterKey
+      value: "<Replace with the master key for CosmosDB>"
+    - name: database
+      value: dapr-store
+    - name: collection
+      value: actorStateStore
+    - name: actorStateStore
+      value: "true"
+```
+
+Create the component in kubernetes:
+
+```bash
+kubectl apply -f k8s/app/state-store.yaml -n apps
+```
+
+### Prepare app for deployment
+
+Building the app consist of preparing an container image build with Docker that is pushed to an container registry. Ensure that you have logged in to your registry first.
+
+For ACR (Azure Container registry)
+
+```bash
+az acr login --name <Your registry name>
+```
+
+For Docker Hub
+
+```bash
+docker login
+```
+
+Next build
 
 ```bash
 docker compose build
@@ -86,6 +129,18 @@ docker push <Your registry name>/dapr/testing-web-api
 docker push <Your registry name>/dapr/testing-actors-runtime
 ```
 
+### Deploy app
+
+The deployment of the app is consistent of two kubernetes deployments and two services. The location of the files is in `k8s/app/`. Before deploying make sure you use the correct name of your container registry of the image. Modify [actor-runtime.yaml](k8s/app/actor-runtime.yaml) and [web-api.yaml](web-api.yaml) deployments with
+
+```yaml
+image: <Your registry name>/dapr/testing-actors-runtime
+```
+
+```bash
+kubectl apply -f k8s/app/ -n apps
+```
+
 ### Build and Deploy app in Kubernetes
 
 There is script that will do all necessary steps to build and deploy the app. You must pass the name of the container registry as parameter.
@@ -93,3 +148,7 @@ There is script that will do all necessary steps to build and deploy the app. Yo
 ```bash
 ./build.sh <Your registry name>
 ```
+
+## Dapr Bugs
+
+1. When reminders are used for actors; under certain conditions single actor instance is placed in two pods. More [here --->](BUG01.md).
