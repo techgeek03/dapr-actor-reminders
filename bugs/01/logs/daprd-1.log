@@ -1,0 +1,370 @@
+{
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "starting Dapr Runtime -- version 1.6.0 -- commit 4bb25fab444c4f1a1bf0ffd74293dbd4fdcea580",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:57.993515908Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "log level set to: info",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:57.993559008Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "kubernetes mode configured",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.209583003Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "app id: testing-actor-runtime",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.209802707Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "mTLS enabled. creating sidecar authenticator",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.209922309Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "trust anchors and cert chain extracted successfully",
+  "scope": "dapr.runtime.security",
+  "time": "2022-03-23T08:38:58.210107512Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "authenticator created",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.210216514Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "Initialized name resolution to kubernetes",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.210582421Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "component loaded. name: kubernetes, type: secretstores.kubernetes/v1",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.212372153Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "loading components",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.212626657Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "waiting for all outstanding components to be processed",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.356776956Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "detected actor state store: dapr-actor-state-store",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.860389235Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "component loaded. name: dapr-actor-state-store, type: state.azure.cosmosdb/v1",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.860617139Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "all outstanding components processed",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.860720141Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "enabled gRPC tracing middleware",
+  "scope": "dapr.runtime.grpc.api",
+  "time": "2022-03-23T08:38:58.861092347Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "enabled gRPC tracing middleware",
+  "scope": "dapr.runtime.grpc.api",
+  "time": "2022-03-23T08:38:58.862451872Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "API gRPC server is running on port 50001",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.862493273Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "enabled tracing http middleware",
+  "scope": "dapr.runtime.http",
+  "time": "2022-03-23T08:38:58.862686076Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "enabled tracing http middleware",
+  "scope": "dapr.runtime.http",
+  "time": "2022-03-23T08:38:58.862773578Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "http server is running on port 3500",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.862791478Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "The request body size parameter is: 4",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:58.862800878Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "enabled gRPC tracing middleware",
+  "scope": "dapr.runtime.grpc.internal",
+  "time": "2022-03-23T08:38:58.862853179Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "sending workload csr request to sentry",
+  "scope": "dapr.runtime.grpc.internal",
+  "time": "2022-03-23T08:38:58.862865479Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "certificate signed successfully",
+  "scope": "dapr.runtime.grpc.internal",
+  "time": "2022-03-23T08:38:59.125061706Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "internal gRPC server is running on port 50002",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:59.125559415Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "application protocol: http. waiting on port 8081.  This will block until the app is listening on that port.",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:59.125588816Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "starting workload cert expiry watcher. current cert expires on: 2022-03-24 08:53:59 +0000 UTC",
+  "scope": "dapr.runtime.grpc.internal",
+  "time": "2022-03-23T08:38:59.126006423Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "application discovered on port 8081",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:38:59.530601317Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "application configuration loaded",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:39:00.214612848Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "actor runtime started. actor idle timeout: 5m0s. actor scan interval: 30s",
+  "scope": "dapr.runtime.actor",
+  "time": "2022-03-23T08:39:00.215198258Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "dapr initialized. Status: Running. Init Elapsed 2005.8856600000001ms",
+  "scope": "dapr.runtime",
+  "time": "2022-03-23T08:39:00.215470063Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "placement tables updated, version: 66",
+  "scope": "dapr.runtime.actor.internal.placement",
+  "time": "2022-03-23T08:39:09.030220441Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "placement tables updated, version: 67",
+  "scope": "dapr.runtime.actor.internal.placement",
+  "time": "2022-03-23T08:39:11.104243742Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "placement tables updated, version: 68",
+  "scope": "dapr.runtime.actor.internal.placement",
+  "time": "2022-03-23T08:39:15.596073659Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "placement tables updated, version: 69",
+  "scope": "dapr.runtime.actor.internal.placement",
+  "time": "2022-03-23T08:45:05.05232983Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "placement tables updated, version: 70",
+  "scope": "dapr.runtime.actor.internal.placement",
+  "time": "2022-03-23T08:45:08.601343725Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "placement tables updated, version: 71",
+  "scope": "dapr.runtime.actor.internal.placement",
+  "time": "2022-03-23T08:46:04.087845636Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "Found reminder with key: RemindMeEveryMinute01||d0ddd78d-e80d-4d61-b01c-706c45acfbd6||RemindMe-Every-Minute-01-d0ddd78d-e80d-4d61-b01c-706c45acfbd6-Reminder. Deleting reminder",
+  "scope": "dapr.runtime.actor",
+  "time": "2022-03-23T08:53:05.006584779Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "reminder RemindMe-Every-Minute-01-d0ddd78d-e80d-4d61-b01c-706c45acfbd6-Reminder with parameters: dueTime: 2022-03-23T08:42:05Z, period: 0h1m0s0ms, data:  has been deleted.",
+  "scope": "dapr.runtime.actor",
+  "time": "2022-03-23T08:53:05.072406299Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "Found reminder with key: RemindMeEveryMinute01||e5d9cde4-a92f-4f1a-b723-fe9240895555||RemindMe-Every-Minute-01-e5d9cde4-a92f-4f1a-b723-fe9240895555-Reminder. Deleting reminder",
+  "scope": "dapr.runtime.actor",
+  "time": "2022-03-23T08:53:51.003187734Z",
+  "type": "log",
+  "ver": "1.6.0"
+}, {
+  "app_id": "testing-actor-runtime",
+  "instance": "testing-actor-runtime-7c77959df9-cnlwq",
+  "level": "info",
+  "msg": "reminder RemindMe-Every-Minute-01-e5d9cde4-a92f-4f1a-b723-fe9240895555-Reminder with parameters: dueTime: 2022-03-23T08:43:51Z, period: 0h1m0s0ms, data:  has been deleted.",
+  "scope": "dapr.runtime.actor",
+  "time": "2022-03-23T08:53:51.037925072Z",
+  "type": "log",
+  "ver": "1.6.0"
+},

@@ -1,6 +1,6 @@
 # Dapr Actors on dotNet
 
-Project for testing dapr actor with dotNet SDK.
+Project for testing dapr actors with dotNet SDK.
 
 ## Pre-requirements
 
@@ -137,6 +137,8 @@ The deployment of the app is consistent of two kubernetes deployments and two se
 image: <Your registry name>/dapr/testing-actors-runtime
 ```
 
+Then deploy with
+
 ```bash
 kubectl apply -f k8s/app/ -n apps
 ```
@@ -151,4 +153,4 @@ There is script that will do all necessary steps to build and deploy the app. Yo
 
 ## Dapr Bugs
 
-1. When reminders are used for actors; under certain conditions single actor instance is placed in two pods. More [here --->](BUG01.md).
+1. When reminders are used for actors; under certain conditions single actor instance is placed in two pods. More [here --->](bugs/01/BUG01.md).
