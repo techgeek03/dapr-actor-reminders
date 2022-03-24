@@ -21,6 +21,7 @@ public class Startup
         {
             options.Actors.RegisterActor<RemindMeEveryMinute01Actor>();
             options.Actors.RegisterActor<RemindMeEveryMinute02Actor>();
+            options.Actors.RegisterActor<SimpleActor>();
 
             options.ActorIdleTimeout = TimeSpan.FromSeconds(Configuration.GetValue<int>("Dapr:Actors:IdleTimeoutSeconds"));
             options.ActorScanInterval = TimeSpan.FromSeconds(Configuration.GetValue<int>("Dapr:Actors:ScanIntervalSeconds"));
