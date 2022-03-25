@@ -153,4 +153,4 @@ There is script that will do all necessary steps to build and deploy the app. Yo
 
 ## Dapr Bugs
 
-1. When reminders are used for actors; under certain conditions single actor instance is placed in two pods. More [here --->](bugs/01/BUG01.md).
+1. (FIXED): When reminders are used for actors; under certain conditions single actor instance is placed in two pods. More [here --->](bugs/01/BUG01.md). The official GiHub issues is [here](https://github.com/dapr/dapr/issues/4419).
