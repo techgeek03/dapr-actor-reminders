@@ -5,20 +5,32 @@ using Microsoft.Extensions.Options;
 
 namespace Dapr.Testing.Actors.Runtime;
 
-[Actor(TypeName = "SimpleActor")]
-public class SimpleActor :
+[Actor(TypeName = "SimpleActor1")]
+public class SimpleActor1 :
     BaseActor,
     ISimpleActor
 {
     private const string StateName = "Simple-Actor-State";
     private readonly SimpleActorState _state;
 
-    public SimpleActor(
+    public SimpleActor1(
+        IHostApplicationLifetime applicationLifetime,
         ActorHost host,
         IOptions<ApplicationOptions> options)
         : base(host, options)
     {
         _state = new SimpleActorState();
+        applicationLifetime.ApplicationStopping.Register(() =>
+        {
+            Console.WriteLine("Exiting manual..");
+            for (int i = 0; i < 40; i++)
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Console.WriteLine($"Waiting to finish {i} s");
+            }
+
+            Console.WriteLine("Finish exiting manual..");
+        });
     }
 
     public async Task DoSomething(TimeSpan delay)
@@ -32,7 +44,12 @@ public class SimpleActor :
         using (Logger.BeginScope(scopeParameters))
         {
             Logger.LogInformation("Starting business logic for {Delay}", delay);
-            await Task.Delay(delay);
+
+            for (int i = 0; i < delay.TotalSeconds; i++)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(1));
+                Console.WriteLine($"Executing business logic after {i} s");
+            }
 
             _state.Count++;
             _state.Timestamp = DateTimeOffset.UtcNow;

@@ -17,11 +17,18 @@ public class Startup
         services.AddHealthChecks();
         services.Configure<ApplicationOptions>(Configuration.GetSection("Application"));
 
+        services.AddHttpClient(nameof(SimpleActor2), client =>
+        {
+            var httpsHttpbinOrgDelay = "https://httpbin.org/delay/10";
+            client.BaseAddress = new Uri(httpsHttpbinOrgDelay);
+        });
+
         services.AddActors(options =>
         {
             options.Actors.RegisterActor<RemindMeEveryMinute01Actor>();
             options.Actors.RegisterActor<RemindMeEveryMinute02Actor>();
-            options.Actors.RegisterActor<SimpleActor>();
+            options.Actors.RegisterActor<SimpleActor1>();
+            options.Actors.RegisterActor<SimpleActor2>();
 
             options.ActorIdleTimeout = TimeSpan.FromSeconds(Configuration.GetValue<int>("Dapr:Actors:IdleTimeoutSeconds"));
             options.ActorScanInterval = TimeSpan.FromSeconds(Configuration.GetValue<int>("Dapr:Actors:ScanIntervalSeconds"));

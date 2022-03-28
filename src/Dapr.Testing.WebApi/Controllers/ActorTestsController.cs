@@ -24,9 +24,20 @@ public class ActorTestsController : ControllerBase
     public async Task<IActionResult> Test01(string? id = null, int secondsDelay = 1, CancellationToken cancellationToken = default)
     {
         var actorId = new ActorId(id ?? Guid.NewGuid().ToString());
-        var proxy = _actorProxy.Create(actorId, "SimpleActor");
+        var proxy = _actorProxy.Create(actorId, "SimpleActor1");
 
         await proxy.InvokeMethodAsync("DoSomething", TimeSpan.FromSeconds(secondsDelay), cancellationToken);
+        return Accepted();
+    }
+
+    [HttpGet]
+    [Route("test02")]
+    public async Task<IActionResult> Test02(string? id = null, CancellationToken cancellationToken = default)
+    {
+        var actorId = new ActorId(id ?? Guid.NewGuid().ToString());
+        var proxy = _actorProxy.Create(actorId, "SimpleActor2");
+
+        await proxy.InvokeMethodAsync("DoSomething", TimeSpan.Zero, cancellationToken);
         return Accepted();
     }
 }
