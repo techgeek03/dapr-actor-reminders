@@ -111,7 +111,7 @@ spec:
       securityContext:
         runAsGroup: 3000
         runAsUser: 1000
-      terminationGracePeriodSeconds: 30
+      terminationGracePeriodSeconds: 60
       volumes:
       - emptyDir: {}
         name: tmp-volume

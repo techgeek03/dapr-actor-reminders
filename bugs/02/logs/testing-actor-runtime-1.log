@@ -1,0 +1,172 @@
+{
+    "@t": "2022-03-29T16:17:41.1538439Z",
+    "@m": "Overriding address(es) '\"http://+:8080, http://+:8081\"'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.",
+    "@i": "88de3686",
+    "@l": "Warning",
+    "addresses": "http://+:8080, http://+:8081",
+    "SourceContext": "Microsoft.AspNetCore.Server.Kestrel",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev"
+} {
+    "@t": "2022-03-29T16:17:41.5517368Z",
+    "@m": "Now listening on: \"http://[::]:8080\"",
+    "@i": "d826f4b8",
+    "address": "http://[::]:8080",
+    "EventId": {
+        "Id": 14,
+        "Name": "ListeningOnAddress"
+    },
+    "SourceContext": "Microsoft.Hosting.Lifetime",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev"
+} {
+    "@t": "2022-03-29T16:17:41.5532417Z",
+    "@m": "Now listening on: \"http://[::]:8081\"",
+    "@i": "d826f4b8",
+    "address": "http://[::]:8081",
+    "EventId": {
+        "Id": 14,
+        "Name": "ListeningOnAddress"
+    },
+    "SourceContext": "Microsoft.Hosting.Lifetime",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev"
+} {
+    "@t": "2022-03-29T16:17:41.5534179Z",
+    "@m": "Application started. Press Ctrl+C to shut down.",
+    "@i": "dcaefe54",
+    "SourceContext": "Microsoft.Hosting.Lifetime",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev"
+} {
+    "@t": "2022-03-29T16:17:41.5534721Z",
+    "@m": "Hosting environment: \"Production\"",
+    "@i": "c3307c92",
+    "envName": "Production",
+    "SourceContext": "Microsoft.Hosting.Lifetime",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev"
+} {
+    "@t": "2022-03-29T16:17:41.5535143Z",
+    "@m": "Content root path: \"/app/\"",
+    "@i": "b5d60022",
+    "contentRoot": "/app/",
+    "SourceContext": "Microsoft.Hosting.Lifetime",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev"
+} {
+    "@t": "2022-03-30T10:53:42.6549579Z",
+    "@m": "Actor activated",
+    "@i": "7dadd508",
+    "SourceContext": "Dapr.Testing.Actors.Runtime.InvokeExternalEndpointWithDelayActor",
+    "ActorId": "actorWithLongTimeToProcess10",
+    "PodName": "testing-actor-runtime-574844cbd6-q9sdj",
+    "ContainerId": "5e477b54-b8f6-4a09-b6d8-663d71d0ee6d",
+    "RequestId": "0HMGHJUJ7AAEG:00000002",
+    "RequestPath": "/actors/InvokeExternalEndpointWithDelay/actorWithLongTimeToProcess10/method/InvokeEndpoint",
+    "ConnectionId": "0HMGHJUJ7AAEG",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev",
+    "SpanId": "5d6ddd6c3b99bb11",
+    "TraceId": "9e2b350abcafac75fdcce8a313f49767",
+    "ParentId": "42bed68193371eba"
+} {
+    "@t": "2022-03-30T10:53:43.6533073Z",
+    "@m": "Starting business logic",
+    "@i": "22caf342",
+    "SourceContext": "Dapr.Testing.Actors.Runtime.InvokeExternalEndpointWithDelayActor",
+    "PodName": "testing-actor-runtime-574844cbd6-q9sdj",
+    "ContainerId": "5e477b54-b8f6-4a09-b6d8-663d71d0ee6d",
+    "ActorId": "actorWithLongTimeToProcess10",
+    "MethodName": "InvokeEndpoint",
+    "CallType": "ActorInterfaceMethod",
+    "RequestId": "0HMGHJUJ7AAEG:00000002",
+    "RequestPath": "/actors/InvokeExternalEndpointWithDelay/actorWithLongTimeToProcess10/method/InvokeEndpoint",
+    "ConnectionId": "0HMGHJUJ7AAEG",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev",
+    "SpanId": "5d6ddd6c3b99bb11",
+    "TraceId": "9e2b350abcafac75fdcce8a313f49767",
+    "ParentId": "42bed68193371eba"
+} {
+    "@t": "2022-03-30T10:53:53.7951528Z",
+    "@m": "Application is shutting down...",
+    "@i": "90f52c38",
+    "SourceContext": "Microsoft.Hosting.Lifetime",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev"
+} {
+    "@t": "2022-03-30T10:54:18.4472779Z",
+    "@m": "Successfully invoked external endpoint",
+    "@i": "db9bc368",
+    "SourceContext": "Dapr.Testing.Actors.Runtime.InvokeExternalEndpointWithDelayActor",
+    "PodName": "testing-actor-runtime-574844cbd6-q9sdj",
+    "ContainerId": "5e477b54-b8f6-4a09-b6d8-663d71d0ee6d",
+    "ActorId": "actorWithLongTimeToProcess10",
+    "MethodName": "InvokeEndpoint",
+    "CallType": "ActorInterfaceMethod",
+    "RequestId": "0HMGHJUJ7AAEG:00000002",
+    "RequestPath": "/actors/InvokeExternalEndpointWithDelay/actorWithLongTimeToProcess10/method/InvokeEndpoint",
+    "ConnectionId": "0HMGHJUJ7AAEG",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev",
+    "SpanId": "5d6ddd6c3b99bb11",
+    "TraceId": "9e2b350abcafac75fdcce8a313f49767",
+    "ParentId": "42bed68193371eba"
+} {
+    "@t": "2022-03-30T10:54:18.4477559Z",
+    "@m": "Simple actor count: 1",
+    "@i": "021844ab",
+    "Count": 1,
+    "SourceContext": "Dapr.Testing.Actors.Runtime.InvokeExternalEndpointWithDelayActor",
+    "PodName": "testing-actor-runtime-574844cbd6-q9sdj",
+    "ContainerId": "5e477b54-b8f6-4a09-b6d8-663d71d0ee6d",
+    "ActorId": "actorWithLongTimeToProcess10",
+    "MethodName": "InvokeEndpoint",
+    "CallType": "ActorInterfaceMethod",
+    "RequestId": "0HMGHJUJ7AAEG:00000002",
+    "RequestPath": "/actors/InvokeExternalEndpointWithDelay/actorWithLongTimeToProcess10/method/InvokeEndpoint",
+    "ConnectionId": "0HMGHJUJ7AAEG",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev",
+    "SpanId": "5d6ddd6c3b99bb11",
+    "TraceId": "9e2b350abcafac75fdcce8a313f49767",
+    "ParentId": "42bed68193371eba"
+} {
+    "@t": "2022-03-30T10:54:18.5443402Z",
+    "@m": "Connection id \"\"0HMGHJUJ7AAEG\"\", Request id \"\"0HMGHJUJ7AAEG:00000002\"\": An unhandled exception was thrown by the application.",
+    "@i": "560e7d32",
+    "@l": "Error",
+    "@x": "System.Net.Http.HttpRequestException: Connection refused (127.0.0.1:3500)\n ---> System.Net.Sockets.SocketException (111): Connection refused\n   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)\n   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)\n   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)\n   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)\n   --- End of inner exception stack trace ---\n   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)\n   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)\n   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)\n   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)\n   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)\n   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)\n   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)\n   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)\n   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)\n   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)\n   at Dapr.Actors.DaprHttpInteractor.SendAsyncHandleSecurityExceptions(Func`1 requestFunc, CancellationToken cancellationToken)\n   at Dapr.Actors.DaprHttpInteractor.SendAsyncHandleUnsuccessfulResponse(Func`1 requestFunc, String relativeUri, CancellationToken cancellationToken)\n   at Dapr.Actors.DaprHttpInteractor.SendAsync(Func`1 requestFunc, String relativeUri, CancellationToken cancellationToken)\n   at Dapr.Actors.DaprHttpInteractor.GetStateAsync(String actorType, String actorId, String keyName, CancellationToken cancellationToken)\n   at Dapr.Actors.Runtime.DaprStateProvider.TryLoadStateAsync[T](String actorType, String actorId, String stateName, CancellationToken cancellationToken)\n   at Dapr.Actors.Runtime.ActorStateManager.AddOrUpdateStateAsync[T](String stateName, T addValue, Func`3 updateValueFactory, CancellationToken cancellationToken)\n   at Dapr.Testing.Actors.Runtime.InvokeExternalEndpointWithDelayActor.InvokeEndpoint(Int32 delay) in /src/src/Dapr.Testing.Actors.Runtime/InvokeExternalEndpointWithDelayActor.cs:line 53\n   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid1[T0](CallSite site, T0 arg0)\n   at Dapr.Actors.Runtime.ActorManager.<>c__DisplayClass23_0.<<DispatchWithoutRemotingAsync>g__RequestFunc|0>d.MoveNext()\n--- End of stack trace from previous location ---\n   at Dapr.Actors.Runtime.ActorManager.DispatchInternalAsync[T](ActorId actorId, ActorMethodContext actorMethodContext, Func`3 actorFunc, CancellationToken cancellationToken)\n   at Dapr.Actors.Runtime.ActorManager.DispatchInternalAsync[T](ActorId actorId, ActorMethodContext actorMethodContext, Func`3 actorFunc, CancellationToken cancellationToken)\n   at Dapr.Actors.Runtime.ActorManager.DispatchInternalAsync[T](ActorId actorId, ActorMethodContext actorMethodContext, Func`3 actorFunc, CancellationToken cancellationToken)\n   at Dapr.Actors.Runtime.ActorManager.DispatchWithoutRemotingAsync(ActorId actorId, String actorMethodName, Stream requestBodyStream, Stream responseBodyStream, CancellationToken cancellationToken)\n   at Microsoft.AspNetCore.Builder.ActorsEndpointRouteBuilderExtensions.<>c__DisplayClass3_0.<<MapActorMethodEndpoint>b__0>d.MoveNext()\n--- End of stack trace from previous location ---\n   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)\n   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)",
+    "ConnectionId": "0HMGHJUJ7AAEG",
+    "TraceIdentifier": "0HMGHJUJ7AAEG:00000002",
+    "EventId": {
+        "Id": 13,
+        "Name": "ApplicationError"
+    },
+    "SourceContext": "Microsoft.AspNetCore.Server.Kestrel",
+    "RequestId": "0HMGHJUJ7AAEG:00000002",
+    "RequestPath": "/actors/InvokeExternalEndpointWithDelay/actorWithLongTimeToProcess10/method/InvokeEndpoint",
+    "Application": "dapr.testing.actor-runtime",
+    "Environment": "dev",
+    "ExceptionDetail": {
+        "HResult": -2147467259,
+        "Message": "Connection refused (127.0.0.1:3500)",
+        "Source": "System.Net.Http",
+        "TargetSite": "Void MoveNext()",
+        "InnerException": {
+            "Type": "System.Net.Sockets.SocketException",
+            "HResult": -2147467259,
+            "Message": "Connection refused",
+            "Source": "System.Net.Sockets",
+            "TargetSite": "Void ThrowException(System.Net.Sockets.SocketError, System.Threading.CancellationToken)",
+            "SocketErrorCode": "ConnectionRefused",
+            "SocketErrorCodeMessage": "The remote host is actively refusing a connection."
+        },
+        "StatusCode": null,
+        "Type": "System.Net.Http.HttpRequestException"
+    },
+    "SpanId": "5d6ddd6c3b99bb11",
+    "TraceId": "9e2b350abcafac75fdcce8a313f49767",
+    "ParentId": "42bed68193371eba"
+}

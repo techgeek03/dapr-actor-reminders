@@ -1,0 +1,433 @@
+{
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "starting Dapr Runtime -- version edge -- commit 4cf499448ef6ee87c83db6a11b84e83237e92665",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:39.588277249Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "log level set to: info",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:39.588363455Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "Initializing the operator client (config: dapr-testing-app-config)",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:39.588613974Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "kubernetes mode configured",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:39.761189357Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "app id: testing-actor-runtime",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:39.76122756Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "mTLS enabled. creating sidecar authenticator",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:39.761246162Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "trust anchors and cert chain extracted successfully",
+    "scope": "dapr.runtime.security",
+    "time": "2022-03-29T16:17:39.761400574Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "authenticator created",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:39.761419375Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "Initialized name resolution to kubernetes",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:39.7617519Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "component loaded. name: kubernetes, type: secretstores.kubernetes/v1",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:39.762828382Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "loading components",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:39.763100002Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "waiting for all outstanding components to be processed",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:39.916103502Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "detected actor state store: dapr-actor-state-store",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:40.424382436Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "component loaded. name: dapr-actor-state-store, type: state.azure.cosmosdb/v1",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:40.424429639Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "all outstanding components processed",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:40.424449641Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "gRPC proxy enabled",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:40.424462842Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "enabled gRPC tracing middleware",
+    "scope": "dapr.runtime.grpc.api",
+    "time": "2022-03-29T16:17:40.424750764Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "enabled gRPC tracing middleware",
+    "scope": "dapr.runtime.grpc.api",
+    "time": "2022-03-29T16:17:40.424822269Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "API gRPC server is running on port 50001",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:40.424848071Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "enabled tracing http middleware",
+    "scope": "dapr.runtime.http",
+    "time": "2022-03-29T16:17:40.425072988Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "enabled tracing http middleware",
+    "scope": "dapr.runtime.http",
+    "time": "2022-03-29T16:17:40.425170996Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "http server is running on port 3500",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:40.425188297Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "The request body size parameter is: 4",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:40.425197998Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "enabled gRPC tracing middleware",
+    "scope": "dapr.runtime.grpc.internal",
+    "time": "2022-03-29T16:17:40.425267903Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "sending workload csr request to sentry",
+    "scope": "dapr.runtime.grpc.internal",
+    "time": "2022-03-29T16:17:40.425281804Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "certificate signed successfully",
+    "scope": "dapr.runtime.grpc.internal",
+    "time": "2022-03-29T16:17:40.647138424Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "internal gRPC server is running on port 50002",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:40.647707267Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "application protocol: http. waiting on port 8081.  This will block until the app is listening on that port.",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:40.647870179Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "starting workload cert expiry watcher. current cert expires on: 2022-03-30 16:32:40 +0000 UTC",
+    "scope": "dapr.runtime.grpc.internal",
+    "time": "2022-03-29T16:17:40.64827931Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "application discovered on port 8081",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:41.560107138Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "application configuration loaded",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:42.254014945Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "actor runtime started. actor idle timeout: 5m0s. actor scan interval: 30s",
+    "scope": "dapr.runtime.actor",
+    "time": "2022-03-29T16:17:42.254330669Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "dapr initialized. Status: Running. Init Elapsed 2493.304124ms",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T16:17:42.254495082Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "placement tables updated, version: 532",
+    "scope": "dapr.runtime.actor.internal.placement",
+    "time": "2022-03-29T16:17:44.705581105Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "placement tables updated, version: 533",
+    "scope": "dapr.runtime.actor.internal.placement",
+    "time": "2022-03-29T16:17:46.761734074Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "placement tables updated, version: 534",
+    "scope": "dapr.runtime.actor.internal.placement",
+    "time": "2022-03-29T16:19:30.906835745Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "placement tables updated, version: 535",
+    "scope": "dapr.runtime.actor.internal.placement",
+    "time": "2022-03-29T16:19:37.753670804Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "placement tables updated, version: 536",
+    "scope": "dapr.runtime.actor.internal.placement",
+    "time": "2022-03-29T16:34:28.445003996Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "placement tables updated, version: 537",
+    "scope": "dapr.runtime.actor.internal.placement",
+    "time": "2022-03-29T16:34:32.752907062Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "component update skipped: .spec field unchanged",
+    "scope": "dapr.runtime",
+    "time": "2022-03-29T22:54:47.826414429Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "component update skipped: .spec field unchanged",
+    "scope": "dapr.runtime",
+    "time": "2022-03-30T08:57:33.651284573Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "renewing certificate: requesting new cert and restarting gRPC server",
+    "scope": "dapr.runtime.grpc.internal",
+    "time": "2022-03-30T09:16:10.649478269Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "sending workload csr request to sentry",
+    "scope": "dapr.runtime.grpc.internal",
+    "time": "2022-03-30T09:16:10.649583278Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "certificate signed successfully",
+    "scope": "dapr.runtime.grpc.internal",
+    "time": "2022-03-30T09:16:10.679514952Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "Shutting down actor",
+    "scope": "dapr.runtime",
+    "time": "2022-03-30T10:53:53.806173493Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "dapr shutting down.",
+    "scope": "dapr.runtime",
+    "time": "2022-03-30T10:53:54.634111681Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "Stopping Dapr APIs",
+    "scope": "dapr.runtime",
+    "time": "2022-03-30T10:53:54.634171486Z",
+    "type": "log",
+    "ver": "edge"
+} {
+    "app_id": "testing-actor-runtime",
+    "instance": "testing-actor-runtime-574844cbd6-q9sdj",
+    "level": "info",
+    "msg": "Waiting 1m0s to finish outstanding operations",
+    "scope": "dapr.runtime",
+    "time": "2022-03-30T10:54:18.749061404Z",
+    "type": "log",
+    "ver": "edge"
+}

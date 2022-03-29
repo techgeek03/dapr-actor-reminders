@@ -5,26 +5,26 @@ using Microsoft.Extensions.Options;
 
 namespace Dapr.Testing.Actors.Runtime;
 
-[Actor(TypeName = "SimpleActor2")]
-public class SimpleActor2 :
+[Actor(TypeName = "InvokeExternalEndpointWithDelay")]
+public class InvokeExternalEndpointWithDelayActor :
     BaseActor,
-    ISimpleActor
+    IInvokeExternalEndpointWithDelayActor
 {
-    private const string StateName = "Simple-Actor-State";
-    private readonly IHttpClientFactory _httpClientFactory;
+    private const string StateName = "Invoke-External-Endpoint";
+    private readonly IDelayMeHttpClient _delayMeHttpClient;
     private readonly SimpleActorState _state;
 
-    public SimpleActor2(
-        IHttpClientFactory httpClientFactory,
+    public InvokeExternalEndpointWithDelayActor(
         ActorHost host,
-        IOptions<ApplicationOptions> options)
+        IOptions<ApplicationOptions> options,
+        IDelayMeHttpClient delayMeHttpClient)
         : base(host, options)
     {
-        _httpClientFactory = httpClientFactory;
+        _delayMeHttpClient = delayMeHttpClient;
         _state = new SimpleActorState();
     }
 
-    public async Task DoSomething(TimeSpan delay)
+    public async Task InvokeEndpoint(int delay)
     {
         var scopeParameters = new Dictionary<string, object>
         {
@@ -36,9 +36,15 @@ public class SimpleActor2 :
         {
             Logger.LogInformation("Starting business logic");
 
-            using (var httpClient = _httpClientFactory.CreateClient(nameof(SimpleActor2)))
+            var response = await _delayMeHttpClient.Delay(delay);
+
+            if (response.IsSuccessStatusCode)
             {
-                await httpClient.GetAsync(string.Empty);
+                Logger.LogInformation("Successfully invoked external endpoint");
+            }
+            else
+            {
+                Logger.LogError("Failed to invoke external endpoint");
             }
 
             _state.Count++;
@@ -83,5 +89,5 @@ public class SimpleActor2 :
     }
 
     private string GetOperationStateName(int count)
-        => $"Simple-Actor-Operation-{count}-State";
+        => $"Invoke-External-Endpoint-{count}-State";
 }

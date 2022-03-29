@@ -1,5 +1,7 @@
+using System.Text.Json;
 using Dapr.Testing.Actors.Runtime;
 using Dapr.Testing.Sdk;
+using Refit;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,19 +21,27 @@ builder.Services.AddHealthChecks();
 
 builder.Services.Configure<ApplicationOptions>(builder.Configuration.GetSection("Application"));
 
-builder.Services.AddHttpClient(nameof(SimpleActor2), client =>
-{
-    var httpsHttpbinOrgDelay = "https://httpbin.org/delay/10";
-    client.BaseAddress = new Uri(httpsHttpbinOrgDelay);
-});
+builder.Services.AddRefitClient<IDelayMeHttpClient>(
+        new RefitSettings
+        {
+            ContentSerializer = new SystemTextJsonContentSerializer(new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            })
+        })
+    .ConfigureHttpClient(x =>
+    {
+        var httpBinUrl = "https://deelay.me/";
+        x.BaseAddress = new Uri(httpBinUrl);
+    });
 
 builder.Services.AddActors(options =>
 {
     options.Actors.RegisterActor<RemindMeEveryMinute01Actor>();
     options.Actors.RegisterActor<RemindMeEveryMinute02Actor>();
     options.Actors.RegisterActor<SimpleActor1>();
-    options.Actors.RegisterActor<SimpleActor2>();
     options.Actors.RegisterActor<SimpleActor3>();
+    options.Actors.RegisterActor<InvokeExternalEndpointWithDelayActor>();
 
     options.ActorIdleTimeout = TimeSpan.FromSeconds(builder.Configuration.GetValue<int>("Dapr:Actors:IdleTimeoutSeconds"));
     options.ActorScanInterval = TimeSpan.FromSeconds(builder.Configuration.GetValue<int>("Dapr:Actors:ScanIntervalSeconds"));

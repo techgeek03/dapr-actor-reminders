@@ -7,6 +7,11 @@ public interface ISimpleActor : IActor
     Task DoSomething(TimeSpan delay);
 }
 
+public interface IInvokeExternalEndpointWithDelayActor : IActor
+{
+    Task InvokeEndpoint(int delay);
+}
+
 public class SimpleActorState
 {
     public int Count { get; set; }
