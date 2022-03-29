@@ -1,40 +1,52 @@
-using System.Diagnostics;
+using Dapr.Testing.Actors.Runtime;
 using Dapr.Testing.Sdk;
 using Serilog;
 
-namespace Dapr.Testing.Actors.Runtime;
+var builder = WebApplication.CreateBuilder(args);
 
-public static class Program
+builder.Host.ConfigureHostOptions(o => o.ShutdownTimeout = TimeSpan.FromSeconds(60));
+
+Log.Logger = LoggingProvider.CreateSerilogLogger();
+
+// Configure Logging
+builder.Logging.ConfigureLogging();
+
+builder.Host.UseLogging();
+
+builder.Services.AddOptions();
+
+builder.Services.AddHealthChecks();
+
+builder.Services.Configure<ApplicationOptions>(builder.Configuration.GetSection("Application"));
+
+builder.Services.AddHttpClient(nameof(SimpleActor2), client =>
 {
-    public static async Task<int> Main(string[] args)
-    {
-        Activity.DefaultIdFormat = ActivityIdFormat.W3C;
+    var httpsHttpbinOrgDelay = "https://httpbin.org/delay/10";
+    client.BaseAddress = new Uri(httpsHttpbinOrgDelay);
+});
 
-        Log.Logger = LoggingProvider.CreateSerilogLogger();
+builder.Services.AddActors(options =>
+{
+    options.Actors.RegisterActor<RemindMeEveryMinute01Actor>();
+    options.Actors.RegisterActor<RemindMeEveryMinute02Actor>();
+    options.Actors.RegisterActor<SimpleActor1>();
+    options.Actors.RegisterActor<SimpleActor2>();
+    options.Actors.RegisterActor<SimpleActor3>();
 
-        try
-        {
-            var host = CreateHostBuilder(args).Build();
-            await host.RunAsync();
+    options.ActorIdleTimeout = TimeSpan.FromSeconds(builder.Configuration.GetValue<int>("Dapr:Actors:IdleTimeoutSeconds"));
+    options.ActorScanInterval = TimeSpan.FromSeconds(builder.Configuration.GetValue<int>("Dapr:Actors:ScanIntervalSeconds"));
+    options.DrainRebalancedActors = true;
+    options.DrainOngoingCallTimeout = TimeSpan.FromSeconds(30);
+});
 
-            return 0;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.ToString());
-            Log.Fatal(ex, "Host terminated unexpectedly");
-            Thread.Sleep(5000);
-            return -1;
-        }
-        finally
-        {
-            Log.CloseAndFlush();
-        }
-    }
+var app = builder.Build();
 
-    public static IHostBuilder CreateHostBuilder(string[] args) => Host
-        .CreateDefaultBuilder(args)
-        .ConfigureLogging(HostBuilderExtensions.ConfigureLogging)
-        .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
-        .UseHost();
-}
+app.UseRouting();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHealthzChecks();
+    endpoints.MapActorsHandlers();
+});
+
+app.Run();

@@ -1,40 +1,34 @@
-using System.Diagnostics;
+using Dapr.Actors.Client;
 using Dapr.Testing.Sdk;
 using Serilog;
 
-namespace Dapr.Testing.WebApi;
+var builder = WebApplication.CreateBuilder(args);
 
-public static class Program
+Log.Logger = LoggingProvider.CreateSerilogLogger();
+
+// Configure Logging
+builder.Logging.ConfigureLogging();
+
+builder.Host.UseLogging();
+
+builder.Services.AddOptions();
+
+builder.Services.AddHealthChecks();
+
+builder.Services.Configure<ApplicationOptions>(builder.Configuration.GetSection("Application"));
+
+builder.Services.AddSingleton(ActorProxy.DefaultProxyFactory);
+
+builder.Services.AddControllers();
+
+var app = builder.Build();
+
+app.UseRouting();
+
+app.UseEndpoints(endpoints =>
 {
-    public static async Task<int> Main(string[] args)
-    {
-        Activity.DefaultIdFormat = ActivityIdFormat.W3C;
+    endpoints.MapHealthzChecks();
+    endpoints.MapControllers();
+});
 
-        Log.Logger = LoggingProvider.CreateSerilogLogger();
-
-        try
-        {
-            var host = CreateHostBuilder(args).Build();
-            await host.RunAsync();
-
-            return 0;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.ToString());
-            Log.Fatal(ex, "Host terminated unexpectedly");
-            Thread.Sleep(5000);
-            return -1;
-        }
-        finally
-        {
-            Log.CloseAndFlush();
-        }
-    }
-
-    public static IHostBuilder CreateHostBuilder(string[] args) => Host
-        .CreateDefaultBuilder(args)
-        .ConfigureLogging(HostBuilderExtensions.ConfigureLogging)
-        .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>())
-        .UseHost();
-}
+app.Run();
