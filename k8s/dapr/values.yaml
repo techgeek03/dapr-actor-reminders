@@ -1,5 +1,6 @@
 global:
   registry: docker.io/daprio
+  tag: 'edge'
   daprControlPlaneArch: amd64
   daprControlPlaneOs: linux
   ha:
